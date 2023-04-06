@@ -5,4 +5,5 @@
     <string name="todo">TODO</string>
     <string name="movie_title">Movie title</string>
     <string name="release_year">Release year</string>
+    <string name="text">text</string>
 </resources>
