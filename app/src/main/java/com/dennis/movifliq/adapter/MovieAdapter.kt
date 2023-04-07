@@ -28,12 +28,13 @@ class MovieViewHolder(private val binding: ItemViewBinding) :
 
     fun bind(movie: Movies) {
         binding.txtTitle.text = movie.title
-        binding.txtYear.text = movie.overview
+
 
         val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
-        Glide.with(binding.imgPoster).load(imageUrl).into(binding.imgPoster)
+        Glide.with(binding.imgPoster)
+            .load(imageUrl)
 
-
+            .into(binding.imgPoster)
     }
 
 }

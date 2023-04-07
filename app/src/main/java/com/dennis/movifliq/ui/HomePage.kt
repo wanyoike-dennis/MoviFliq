@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dennis.movifliq.adapter.MovieAdapter
 import com.dennis.movifliq.data.Movies
 import com.dennis.movifliq.databinding.FragmentHomePageBinding
@@ -32,6 +33,8 @@ class HomePage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = MovieAdapter()
+        val lm = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        binding?.recycler?.layoutManager = lm
         binding?.recycler?.adapter = adapter
 
         viewModel.moviesLiveData.observe(this.viewLifecycleOwner)
