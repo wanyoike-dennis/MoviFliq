@@ -56,11 +56,17 @@ class HomePage : Fragment() {
         val tittle = movie.title
         val overview = movie.overview
         val posterPath = movie.posterPath
-        val releaseDate= movie.releaseDate
         val voteAverage = movie.voteAverage
         val voteCount = movie.voteCount
 
-        val action = HomePageDirections.actionHomePageToDetailFragment()
+
+        val action = HomePageDirections.actionHomePageToDetailFragment(
+            posterPath ,
+            voteAverage ,
+            voteCount,
+            tittle,
+            overview
+        )
         findNavController().navigate(action)
     }
 
