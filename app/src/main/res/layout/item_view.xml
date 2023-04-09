@@ -5,57 +5,37 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
-    android:padding="8dp">
+    android:padding="8dp"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
         app:cardMaxElevation="12dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             >
-            <LinearLayout
+
+            <ImageView
+                android:id="@+id/img_poster"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
-                <ImageView
-                    android:id="@+id/img_poster"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/todo"
-                    android:scaleType="fitCenter"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/ic_connection_error" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                >
-                <TextView
-                    android:id="@+id/txt_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/movie_title"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_connection_error" />
 
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </FrameLayout>

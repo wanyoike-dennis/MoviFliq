@@ -1,19 +1,22 @@
 package com.dennis.movifliq.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.dennis.movifliq.R
 import com.dennis.movifliq.data.Movies
-import com.dennis.movifliq.databinding.ItemViewBinding
 
-class MovieAdapter : ListAdapter<Movies, MovieViewHolder>(MovieDiffCallback()) {
+class MovieAdapter(private val onClick: (Movies) -> Unit) : ListAdapter<Movies, MovieViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding = ItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MovieViewHolder(binding)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_view, parent, false)
+        return MovieViewHolder(view,onClick)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
@@ -23,18 +26,26 @@ class MovieAdapter : ListAdapter<Movies, MovieViewHolder>(MovieDiffCallback()) {
 
 }
 
-class MovieViewHolder(private val binding: ItemViewBinding) :
-    RecyclerView.ViewHolder(binding.root) {
+class MovieViewHolder(itemView:View, val onClick: (Movies) -> Unit) :
+    RecyclerView.ViewHolder(itemView) {
+    private var currentMovie : Movies? = null
+    private val imageView : ImageView = itemView.findViewById(R.id.img_poster)
+
+    init {
+        itemView.setOnClickListener {
+            currentMovie?.let {
+                onClick(it)
+            }
+        }
+    }
 
     fun bind(movie: Movies) {
-        binding.txtTitle.text = movie.title
-
-
+        currentMovie = movie
+      //  binding.txtTitle.text = movie.title
         val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
-        Glide.with(binding.imgPoster)
+        Glide.with(imageView)
             .load(imageUrl)
-
-            .into(binding.imgPoster)
+            .into(imageView)
     }
 
 }
