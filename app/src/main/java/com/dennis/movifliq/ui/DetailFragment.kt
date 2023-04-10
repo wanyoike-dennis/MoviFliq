@@ -35,7 +35,8 @@ class DetailFragment : Fragment() {
     }
 
     private fun loadData(){
-       val imageUrl = args.imagePath
+
+        val imageUrl = "https://image.tmdb.org/t/p/w500${args.imagePath}"
         binding?.apply {
             Glide.with(requireActivity())
                 .load(imageUrl)
