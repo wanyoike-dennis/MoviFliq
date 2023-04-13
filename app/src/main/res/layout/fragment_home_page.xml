@@ -19,9 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".ui.HomePage"
 
-            >
+            tools:context=".ui.HomePage">
 
             <TextView
                 android:id="@+id/textView"

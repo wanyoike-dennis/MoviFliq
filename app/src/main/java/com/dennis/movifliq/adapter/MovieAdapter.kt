@@ -46,6 +46,7 @@ class MovieViewHolder(itemView:View, val onClick: (Movies) -> Unit) :
         Glide.with(imageView)
             .load(imageUrl)
             .into(imageView)
+
     }
 
 }

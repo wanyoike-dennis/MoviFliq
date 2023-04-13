@@ -27,9 +27,6 @@ class NewTest {
             // check that the list of characters is not empty
             assertThat(movies?.isNotEmpty()).isTrue()
 
-
-
-
         }
     }
 }
